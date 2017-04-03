@@ -1,0 +1,100 @@
+#!/usr/bin/python
+import PiAni as PiAni
+import testbed_servo_def
+
+s=PiAni.PiAni(testbed_servo_def.servo_def)
+
+#bring everything home and rest for .5 seconds.
+s.set("mouth",50,0.1)
+s.set("head-tilt",50,0.1)
+s.set("arm-l",50,0.1)
+s.set("arm-r",50,0.1)
+s.pause(.5)
+
+#Hi Im a testbed.
+s.set("head-tilt",70,.2)
+s.sync()
+s.mplay("sounds/MyNameIsTestbed-2.0s.wav","mouth")
+s.set("head-tilt",70,.8)
+s.set("arm-l",100,.5)
+s.set("arm-l", 70,.1)
+s.set("arm-l",100,.1)
+s.set("arm-l", 70,.1)
+s.set("arm-l",100,.1)
+s.set("head-tilt",60,.2)
+s.set("arm-l", 70,.1)
+s.set("arm-l",100,.1)
+s.set("head-tilt",80,.2)
+s.set("arm-l", 70,.1)
+s.set("arm-l",100,.1)
+s.set("head-tilt",60,.2)
+s.set("arm-l", 70,.1)
+s.set("arm-l",100,.1)
+s.set("head-tilt",80,.2)
+s.set("arm-l", 70,.1)
+s.set("arm-l",100,.1)
+s.set("head-tilt",80,.2)
+s.sync()
+s.set("arm-l",10,.5)
+
+#i can move my arms
+s.set("head-tilt",50,.2)
+s.sync()
+s.mplay("sounds/MoveMyArms-1.2s.wav", "mouth")
+s.set("arm-l",100,.5)
+s.set("arm-l", 60,.2)
+s.set("arm-l",100,.2)
+s.set("arm-l", 60,.2)
+s.set("arm-l",100,.2)
+s.set("arm-l",10,.5)
+s.sync()
+s.set("arm-r",100,.5)
+s.set("arm-r", 60,.2)
+s.set("arm-r",100,.2)
+s.set("arm-r", 60,.2)
+s.set("arm-r",100,.2)
+s.set("arm-r",10,.5)
+s.sync()
+
+#i can nod my head
+s.set("head-tilt",50,.2)
+s.sync()
+s.mplay("sounds/NodMyHead-1.1s.wav", "mouth")
+s.sync()
+s.set("head-tilt",10,.5)
+s.set("head-tilt",90,.5)
+s.set("head-tilt",10,.5)
+s.set("head-tilt",90,.5)
+s.set("head-tilt",50,.2)
+s.sync()
+
+#and...
+s.mplay("sounds/ThatsAboutIt-7.1.wav", "mouth")
+s.set("head-tilt",70,.5)
+s.set("arm-l",100,1)
+s.set("arm-r",100,1)
+s.sync()
+#2.3 mouth seconds to here
+s.set("head-tilt",60,.3)
+s.set("arm-l",10,.5)
+s.set("arm-r",10,.5)
+s.sync()
+#3.8 mouth seconds to here
+s.set("head-tilt",70,.3)
+s.set("head-tilt",70,3)
+s.set("arm-l",10,1.2)
+s.set("arm-r",10,1.2)
+s.set("arm-l",70,1)
+s.set("arm-r",70,1)
+s.set("arm-l",10,.5)
+s.set("arm-r",10,.5)
+s.set("mouth",1,.1)
+
+#reset pos.
+s.sync()
+s.set("mouth",90,5)
+s.sync()
+s.set("arm-l",80,.5)
+s.set("arm-r",80,.5)
+
+s.run_exec_array()
